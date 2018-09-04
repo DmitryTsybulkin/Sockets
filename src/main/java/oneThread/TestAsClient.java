@@ -1,3 +1,5 @@
+package oneThread;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -26,6 +28,7 @@ public class TestAsClient {
                     if (clientCommand.equalsIgnoreCase("quit")) {
                         System.out.println("Client kill connection.");
                         Thread.sleep(2000);
+
                         if (inputStream.read() > -1) {
                             System.out.println("Reading...");
                             String in = inputStream.readUTF();
@@ -36,8 +39,9 @@ public class TestAsClient {
                     System.out.println("Client sent message & start waiting for data from server...");
                     Thread.sleep(2000);
 
+                    // получение от сервера сообщения после выполнения команды
                     if (inputStream.read() > -1) {
-                        System.out.println("Reading...");
+                        System.out.println("Reading!..");
                         String in = inputStream.readUTF();
                         System.out.println(in);
                     }

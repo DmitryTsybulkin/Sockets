@@ -1,3 +1,5 @@
+package oneThread;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -24,13 +26,12 @@ public class TestAsServer {
                     outputStream.writeUTF("Server reply " + entry + " - OK");
                     outputStream.flush();
 
-                    Thread.sleep(3000);
+                    Thread.sleep(2000);
                     break;
                 }
-
                 outputStream.writeUTF("Server reply " + entry + " - OK");
-                System.out.println("Server Wrote message to client.");
                 outputStream.flush();
+                System.out.println("Server Wrote message to client.");
             }
 
             System.out.println("Client disconnected. Closing connection...");
